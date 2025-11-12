@@ -1,1 +1,22 @@
 <?php
+
+$pieces = ['0.01', '0.02', '0.05', '0.10', '0.20', '0.50', '1', '2']; 
+$billets = ['10', '20', '50', '100', '200', '500'];
+
+$quantiteP = [45, 45, 45, 45, 45, 30, 30, 45];
+$quantiteB = [10, 5, 10, 1, 1, 0]; 
+
+foreach ($billets as $billet) {
+    $quantiteB = readline("Combien de billets de $billet € y a-t-il dans la caisse ? ");
+    $MontantBillets += $billet * $quantiteB;
+
+}
+foreach ($pieces as $piece) {
+    $quantiteP = readline("Combien de pièces de $piece € y a-t-il dans la caisse ? ");
+    $MontantPieces += $piece * $quantiteP;
+}
+
+$MontantCaisse = $MontantBillets + $MontantPieces;
+echo "Le montant total dans la caisse est de $MontantCaisse €.\n";
+
+?>
