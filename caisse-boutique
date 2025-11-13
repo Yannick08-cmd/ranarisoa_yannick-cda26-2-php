@@ -6,17 +6,42 @@ $billets = ['10', '20', '50', '100', '200', '500'];
 $quantiteP = [45, 45, 45, 45, 45, 30, 30, 45];
 $quantiteB = [10, 5, 10, 1, 1, 0]; 
 
+$clientBillets = 0;
+$clientPieces = 0;
+$MontantClient = 0;
+$MontantAPayer = 0;
+$Rendu = 0;
+
 foreach ($billets as $billet) {
     $quantiteB = readline("Combien de billets de $billet € y a-t-il dans la caisse ? ");
     $MontantBillets += $billet * $quantiteB;
+}   // calcul du montant des billets
 
-}
 foreach ($pieces as $piece) {
     $quantiteP = readline("Combien de pièces de $piece € y a-t-il dans la caisse ? ");
     $MontantPieces += $piece * $quantiteP;
+}   // calcul du montant des pièces
+
+function calculerMontantTotal($MontantBillets, $MontantPieces, $MontantAPayer, $Rendu) {
+    $TotalCaisse = $MontantBillets + $MontantPieces + $MontantAPayer - $Rendu;
+    return $TotalCaisse;
+}   // calcul du montant total de la caisse
+
+// fonction pour calculer le rendu de monnaie suite à un achat
+function calculerRendu($pieces, $billets, $quantiteP, $quantiteB, $clientBillets, $clientPieces, $MontantAPayer) {
+    $MonnaieClient = 50; // exemple de montant donné par le client
+    $MontantAPayer = 23.75; // exemple de montant à payer
+
+
+    $Rendu = $MonnaieClient - $MontantAPayer;
+
+    return $Rendu;
+}
+function miseajourCaisse($pieces, $billets, $quantiteP, $quantiteB, $clientBillets, $clientPieces, $Rendu) {
+    // Met à jour les quantités de pièces et billets dans la caisse après le rendu
+    // (implémentation à compléter selon les besoins spécifiques)
 }
 
-$MontantCaisse = $MontantBillets + $MontantPieces;
-echo "Le montant total dans la caisse est de $MontantCaisse €.\n";
+
 
 ?>
